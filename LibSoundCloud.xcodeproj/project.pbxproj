@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58D46CB61AD6464B00B4404E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D46CB51AD6464B00B4404E /* Main.storyboard */; };
+		58D46CB91AD7026D00B4404E /* PlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D46CB81AD7026D00B4404E /* PlaylistTableViewController.m */; };
 		873BC290192F40700021F024 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873BC28F192F40700021F024 /* Foundation.framework */; };
 		873BC292192F40700021F024 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873BC291192F40700021F024 /* CoreGraphics.framework */; };
 		873BC294192F40700021F024 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873BC293192F40700021F024 /* UIKit.framework */; };
@@ -15,20 +17,16 @@
 		873BC2B4192F40700021F024 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873BC293192F40700021F024 /* UIKit.framework */; };
 		873F1961192F554100386CC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 873F1951192F554100386CC1 /* InfoPlist.strings */; };
 		873F1962192F554100386CC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873F1953192F554100386CC1 /* Images.xcassets */; };
-		873F1964192F554100386CC1 /* LibSoundCloud-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 873F1956192F554100386CC1 /* LibSoundCloud-Info.plist */; };
 		873F1965192F554100386CC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F1958192F554100386CC1 /* main.m */; };
 		873F1966192F554100386CC1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F195A192F554100386CC1 /* MainViewController.m */; };
-		873F1967192F554100386CC1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873F195B192F554100386CC1 /* MainViewController.xib */; };
 		873F1968192F554100386CC1 /* SoundCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F195E192F554100386CC1 /* SoundCloud.m */; };
 		873F1969192F554100386CC1 /* ViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F1960192F554100386CC1 /* ViewAppDelegate.m */; };
 		873F196E192F55E800386CC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F1958192F554100386CC1 /* main.m */; };
 		873F1970192F55E800386CC1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F195A192F554100386CC1 /* MainViewController.m */; };
 		873F1974192F55E800386CC1 /* SoundCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F195E192F554100386CC1 /* SoundCloud.m */; };
-		873F1975192F55E800386CC1 /* ViewAppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 873F195F192F554100386CC1 /* ViewAppDelegate.h */; };
 		873F1976192F55E800386CC1 /* ViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F1960192F554100386CC1 /* ViewAppDelegate.m */; };
 		873F1977192F561500386CC1 /* LibSoundCloud-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 873F1956192F554100386CC1 /* LibSoundCloud-Info.plist */; };
 		873F1978192F561500386CC1 /* LibSoundCloud-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 873F1957192F554100386CC1 /* LibSoundCloud-Prefix.pch */; };
-		873F1979192F561500386CC1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873F195B192F554100386CC1 /* MainViewController.xib */; };
 		873F197A192F565F00386CC1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F1955192F554100386CC1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		873F197B192F571D00386CC1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 873F1955192F554100386CC1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -44,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58D46CB51AD6464B00B4404E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = LibSoundCloud/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		58D46CB71AD7026D00B4404E /* PlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaylistTableViewController.h; path = LibSoundCloud/PlaylistTableViewController.h; sourceTree = SOURCE_ROOT; };
+		58D46CB81AD7026D00B4404E /* PlaylistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaylistTableViewController.m; path = LibSoundCloud/PlaylistTableViewController.m; sourceTree = SOURCE_ROOT; };
 		873BC28C192F40700021F024 /* LibSoundCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibSoundCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		873BC28F192F40700021F024 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		873BC291192F40700021F024 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,7 +60,6 @@
 		873F1958192F554100386CC1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = LibSoundCloud/main.m; sourceTree = SOURCE_ROOT; };
 		873F1959192F554100386CC1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = LibSoundCloud/MainViewController.h; sourceTree = SOURCE_ROOT; };
 		873F195A192F554100386CC1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = LibSoundCloud/MainViewController.m; sourceTree = SOURCE_ROOT; };
-		873F195B192F554100386CC1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = LibSoundCloud/MainViewController.xib; sourceTree = SOURCE_ROOT; };
 		873F195C192F554100386CC1 /* SCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCLoginViewController.h; path = LibSoundCloud/SCLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		873F195D192F554100386CC1 /* SoundCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundCloud.h; path = LibSoundCloud/SoundCloud.h; sourceTree = SOURCE_ROOT; };
 		873F195E192F554100386CC1 /* SoundCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundCloud.m; path = LibSoundCloud/SoundCloud.m; sourceTree = SOURCE_ROOT; };
@@ -133,12 +133,14 @@
 				873F1958192F554100386CC1 /* main.m */,
 				873F1959192F554100386CC1 /* MainViewController.h */,
 				873F195A192F554100386CC1 /* MainViewController.m */,
-				873F195B192F554100386CC1 /* MainViewController.xib */,
+				58D46CB71AD7026D00B4404E /* PlaylistTableViewController.h */,
+				58D46CB81AD7026D00B4404E /* PlaylistTableViewController.m */,
 				873F195C192F554100386CC1 /* SCLoginViewController.h */,
 				873F195D192F554100386CC1 /* SoundCloud.h */,
 				873F195E192F554100386CC1 /* SoundCloud.m */,
 				873F195F192F554100386CC1 /* ViewAppDelegate.h */,
 				873F1960192F554100386CC1 /* ViewAppDelegate.m */,
+				58D46CB51AD6464B00B4404E /* Main.storyboard */,
 			);
 			name = LibSoundCloud;
 			path = EmptyProject;
@@ -206,7 +208,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = View;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Stofkat;
 				TargetAttributes = {
 					873BC2AF192F40700021F024 = {
@@ -238,10 +240,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873F1964192F554100386CC1 /* LibSoundCloud-Info.plist in Resources */,
 				873F1962192F554100386CC1 /* Images.xcassets in Resources */,
 				873F1961192F554100386CC1 /* InfoPlist.strings in Resources */,
-				873F1967192F554100386CC1 /* MainViewController.xib in Resources */,
+				58D46CB61AD6464B00B4404E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +252,6 @@
 			files = (
 				873F1977192F561500386CC1 /* LibSoundCloud-Info.plist in Resources */,
 				873F1978192F561500386CC1 /* LibSoundCloud-Prefix.pch in Resources */,
-				873F1979192F561500386CC1 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873F197B192F571D00386CC1 /* JSONKit.m in Sources */,
+				58D46CB91AD7026D00B4404E /* PlaylistTableViewController.m in Sources */,
 				873F1966192F554100386CC1 /* MainViewController.m in Sources */,
 				873F1969192F554100386CC1 /* ViewAppDelegate.m in Sources */,
 				873F1968192F554100386CC1 /* SoundCloud.m in Sources */,
@@ -278,7 +279,6 @@
 				873F196E192F55E800386CC1 /* main.m in Sources */,
 				873F1970192F55E800386CC1 /* MainViewController.m in Sources */,
 				873F1974192F55E800386CC1 /* SoundCloud.m in Sources */,
-				873F1975192F55E800386CC1 /* ViewAppDelegate.h in Sources */,
 				873F1976192F55E800386CC1 /* ViewAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,12 +415,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EmptyProject/EmptyProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "LibSoundCloud/LibSoundCloud-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "EmptyProjectTests/LibSoundCloudTests-Info.plist";
+				INFOPLIST_FILE = "LibSoundCloudTests/LibSoundCloudTests-Info.plist";
 				PRODUCT_NAME = LibSoundCloudTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -437,8 +437,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EmptyProject/EmptyProject-Prefix.pch";
-				INFOPLIST_FILE = "EmptyProjectTests/LibSoundCloudTests-Info.plist";
+				GCC_PREFIX_HEADER = "LibSoundCloud/LibSoundCloud-Prefix.pch";
+				INFOPLIST_FILE = "LibSoundCloudTests/LibSoundCloudTests-Info.plist";
 				PRODUCT_NAME = LibSoundCloudTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

@@ -17,22 +17,24 @@
 @interface SoundCloud : NSObject
 
 //Change these to your own apps values
-#define CLIENT_ID @"ab91a50019b2954d03cad204bd6ace99"
-#define CLIENT_SECRET @"f7e8588e40c22510686d80a198331774"
-#define REDIRECT_URI @"yourappname://oauth"//don't forget to change this in Info.plist as well
+#define CLIENT_ID @"556342e4587879ca2bb772d5056e2299"
+#define CLIENT_SECRET @"afc3948be5752e0a0292ca6553f43d93"
+#define REDIRECT_URI @"trackmapper://oauth"//don't forget to change this in Info.plist as well
 
 #define SC_API_URL @"https://api.soundcloud.com"
 #define SC_TOKEN @"SC_TOKEN"
 #define SC_CODE @"SC_CODE"
 
 @property (strong, nonatomic)  NSMutableArray *scTrackResultList;
+@property (strong, nonatomic)  NSMutableArray *scPlaylistResult;
 @property (nonatomic,retain) AVAudioPlayer *audioPlayer;
 @property (strong, nonatomic)  NSString *scToken;
 @property (strong, nonatomic)  NSString *scCode;
 
-
++(instancetype)sharedStore;
 -(NSMutableArray *) searchForTracksWithQuery: (NSString *) query;
 -(NSData *) downloadTrackData :(NSString *)songURL;
 -(NSMutableArray *) getUserTracks;
+-(NSMutableArray *) getUserPlaylists;
 -(BOOL) login;
 @end

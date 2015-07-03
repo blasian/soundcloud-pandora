@@ -12,11 +12,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *vc =[storyboard instantiateInitialViewController];
+    
+    // Set root view controller and make windows visible
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.mainViewController = [[MainViewController alloc] init];
-    self.window.rootViewController = self.mainViewController;
-    [self.window makeKeyAndVisible];    return YES;
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    return YES;
 }
 
 

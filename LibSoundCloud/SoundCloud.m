@@ -14,13 +14,35 @@
 //
 
 
-
 #import "SoundCloud.h"
 #import "JSONKit.h"
+#import "UIKit/UIKit.h"
+
 @implementation SoundCloud
 {
 
     BOOL hasBeenLoggedIn;
+}
+
++ (instancetype)sharedStore {
+    static SoundCloud *sharedStore = nil;
+    if (!sharedStore) {
+        sharedStore = [[self alloc] initPrivate];
+    }
+    return sharedStore;
+}
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Singleton" reason:@"Use designated init: [SoundCloud sharedStore]" userInfo:nil];
+    return nil;
+}
+
+- (instancetype)initPrivate {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
 }
 
 //Logon to SoundCloud with the users account
@@ -45,7 +67,7 @@
         dispatch_async(dispatch_get_main_queue(), ^(void)
                        {
                            //[self openLoginViewController];
-                           [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://soundcloud.com/connect?client_id=%@&redirect_uri=%@&response_type=code",CLIENT_ID,REDIRECT_URI]]];
+                           [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://soundcloud.com/connect?client_id=%@&redirect_uri=%@&response_type=code&scope=non-expiring&display=popup",CLIENT_ID,REDIRECT_URI]]];
                        });
         return false;
         }
@@ -62,7 +84,7 @@
     NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
-    [request setValue:[NSString stringWithFormat:@"%d", postData.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:[NSString stringWithFormat:@"%d", (int) postData.length] forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
     NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
@@ -86,13 +108,32 @@
         hasBeenLoggedIn=true;
         self.scToken = token;
     }
+}
+
+-(NSMutableArray *) getUserPlaylists {
     
+    NSString *jsonString =[NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/me/playlists.json?client_id=%@&oauth_token=%@", CLIENT_ID, self.scToken]] encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *playlistArray =[jsonString objectFromJSONString];
+    NSMutableArray *returnArray = [[NSMutableArray alloc]init];
+    NSLog(@"%@",jsonString);
+    
+    self.scPlaylistResult = [[NSMutableArray alloc]init];
+    for(int i=0; i< playlistArray.count;i++)
+    {
+        NSMutableDictionary *result = [playlistArray objectAtIndex:i];
+        if([[result objectForKey:@"kind" ] isEqualToString:@"playlist"])
+        {
+            [returnArray addObject:result];
+        }
+    }
+    
+    return returnArray;
 }
 
 //Get list with full user tracks
 -(NSMutableArray *) getUserTracks {
     
-    NSString *jsonString =[NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/me/tracks.json?oauth_token=%@",self.scToken]] encoding:NSUTF8StringEncoding error:nil];
+    NSString *jsonString =[NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/me/favorites.json?client_id=%@&oauth_token=%@", CLIENT_ID, self.scToken]] encoding:NSUTF8StringEncoding error:nil];
     NSMutableArray *musicArray =[jsonString objectFromJSONString];
     NSMutableArray *returnArray = [[NSMutableArray alloc]init];
     NSLog(@"%@",jsonString);
@@ -149,11 +190,12 @@
 //This can be directly played in an AVAudioPlayer without any modification
 -(NSData *) downloadTrackData :(NSString *)songURL {
     
-            NSData *data =[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?oauth_token=%@",songURL, self.scToken]]];
-    
-            return data;
-            //NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-            //[data writeToFile:[NSString stringWithFormat:@"%@/%@.mp3",documentsPath,songURL] atomically:YES];
+    NSString *urlString = [NSString stringWithFormat:@"%@?oauth_token=%@&client_id=%@",songURL,self.scToken, CLIENT_ID];
+    NSLog(@"%@", songURL);
+    NSData *data =[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+    return data;
+    //NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    //[data writeToFile:[NSString stringWithFormat:@"%@/%@.mp3",documentsPath,songURL] atomically:YES];
 }
 
 @end

@@ -18,26 +18,31 @@
 {
     [super viewDidLoad];
     
-    self.soundCloud =[[SoundCloud alloc]init];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)btnSearchClicked:(id)sender {
-    
-    [self.soundCloud searchForTracksWithQuery:self.txtSearchField.text];
+    [[SoundCloud sharedStore] searchForTracksWithQuery:self.txtSearchField.text];
+}
+- (IBAction)playlists_pressed:(id)sender {
     
 }
+
 - (IBAction)btnStreamClicked:(id)sender {
     
-   NSData *data =[self.soundCloud downloadTrackData:self.txtURLField.text];
+   NSData *data = [[SoundCloud sharedStore] downloadTrackData:self.txtURLField.text];
     
     self.audioPlayer = [[AVAudioPlayer alloc]initWithData:data error:nil];
     [self.audioPlayer play];
 }
-- (IBAction)btnGetUserSongsClicked:(id)sender {
-    
-    [self.soundCloud getUserTracks];
 
+- (IBAction)btnGetUserSongsClicked:(id)sender {
+    //[self.soundCloud getUserTracks];
+
+}
+
+- (IBAction)loginPressed:(id)sender {
+    [[SoundCloud sharedStore] login];
 }
 
 - (void)didReceiveMemoryWarning
